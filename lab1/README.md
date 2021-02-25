@@ -27,7 +27,7 @@ clean:
 
 ## Примеры использования
 
-dima@dima-VirtualBox:/~/io-systems/lab$ echo "5+6" > /dev/var2
+dima@dima-VirtualBox:\~/io-systems/lab$ echo "5+6" > /dev/var2
 dima@dima-VirtualBox:/~/io-systems/lab$ dmesg | tail -n1
 [ 3315.738148] device_write(00000000b1778064)
 dima@dima-VirtualBox:/~/io-systems/lab$ cat /proc/var2
