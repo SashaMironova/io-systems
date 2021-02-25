@@ -11,12 +11,12 @@
 При чтении из файла символьного устройства в кольцевой буфер ядра должен осуществляться вывод тех же данных, которые выводятся при чтении файла /proc/varN.
 
 ## Инструкция по сборке
-Makefile:\n
-obj-m += lab.o\n
+Makefile:  
+obj-m += lab.o  
 
-all:\n
-	make -C /lib/modules/`uname -r`/build M=$(PWD) modules \n
-clean:\n
+all:  
+	make -C /lib/modules/`uname -r`/build M=$(PWD) modules \\n
+clean:  
 	make -C /lib/modules/`uname -r`/build M=$(PWD) clean
 
 ## Инструкция пользователя
@@ -27,15 +27,15 @@ clean:\n
 
 ## Примеры использования
 
-dima@dima-VirtualBox:\~/io-systems/lab$ echo "5+6" > /dev/var2\n
-dima@dima-VirtualBox:\~/io-systems/lab$ dmesg | tail -n1\n
-[ 3315.738148] device_write(00000000b1778064)\n
-dima@dima-VirtualBox:\~/io-systems/lab$ cat /proc/var2\n
-11\n
-dima@dima-VirtualBox:\~/io-systems/lab$ dmesg | tail -n1\n
-[ 3315.738148] device_write(00000000b1778064)\n
-dima@dima-VirtualBox:\~/io-systems/lab$ cat /dev/var2\n
-dima@dima-VirtualBox:\~/io-systems/lab$ dmesg | tail -n1\n
-[ 3354.019494] last result 11\n
+dima@dima-VirtualBox:\~/io-systems/lab$ echo "5+6" > /dev/var2  
+dima@dima-VirtualBox:\~/io-systems/lab$ dmesg | tail -n1 
+[ 3315.738148] device_write(00000000b1778064)  
+dima@dima-VirtualBox:\~/io-systems/lab$ cat /proc/var2  
+11  
+dima@dima-VirtualBox:\~/io-systems/lab$ dmesg | tail -n1  
+[ 3315.738148] device_write(00000000b1778064)  
+dima@dima-VirtualBox:\~/io-systems/lab$ cat /dev/var2  
+dima@dima-VirtualBox:\~/io-systems/lab$ dmesg | tail -n1
+[ 3354.019494] last result 11  
 
 
