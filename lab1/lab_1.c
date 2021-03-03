@@ -98,13 +98,14 @@ static ssize_t device_write(struct file *file, const char __user * buffer, size_
     int first_operand = -10;
     int second_operand = -10;
 
-    char first, second, third;
+    char first='F', second='F', third='F';
 
 	printk(KERN_INFO "device_write(%p)", file);
 
-
-    //if (length != 3)
-    //    return 0;
+    if (length != 4) {
+        *offset = *offset + length;
+        return length;
+    }
 
 	if (copy_from_user(&first, buffer, 1) != 0)
 	{
@@ -145,7 +146,8 @@ static ssize_t device_write(struct file *file, const char __user * buffer, size_
 	/* 
 	* Вернуть количество принятых байт
 	*/
-	return 3;
+    *offset = *offset + length;
+	return length;
 }
 
 static ssize_t proc_write(struct file *file, const char __user * ubuf, size_t count, loff_t* ppos) 
